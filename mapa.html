@@ -5,46 +5,67 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>    
     <style type="text/css">
 
-body{
-  background: #FFFFCC
+body {
+  background: #F0F0F0
 }
 
 .node circle {
-  cursor: default;
-  stroke: #FFCC00;
-  fill: none;
-  stroke-width: 2px;
+  cursor: auto;
+  stroke: #3399FF;
+  fill: auto;
+  stroke-width: 3px;
 }
 
 .node text {
-  font-size: 13px;
+  font-size: 10px;
   font-family: helvetica;
-  font-style: bold;
+  color: green;
+  font-weight: bold;
+  text-align:top;
 
 }
 
 path.link {
   fill: none;
-  stroke: red;
+  stroke: #FF6633;
   stroke-width: 3px;
+
 }
 
 h1 {
-          text-align: center;
+         
           color: #FF9933;
-          font-size:50;
           font-family: Helvetica;
         }
 h2 {
   color:black;
-  font-size: 20;
   font-family: helvetica;
 }
 
-h3 {
+h4 {
   color:black;
   font-family: helvetica;
 }
+
+#grande {position: relative;}
+
+#description {color:black;
+  font-family: arial;
+  position:absolute;
+ top:0;
+ right:0;
+ width:20%;
+}
+
+#SVG {position:absolute;
+ top:0;
+ left:0;
+width: :80%;
+
+
+}
+
+
 
             </style>
   </head>
@@ -54,19 +75,29 @@ h3 {
         <H1> Mapa de la protesta en la Ciudad de México</H1>
         <div class="hint"> 
           
-          <h2>El siguiente es un mapa de los actores involucrados cada que hay una protesta en el Distrito Federal. Se inicia con la protesta y continúa con la división entre Ciudadanía y Gobierno, mostrando a cada actor en cada una de las áreas. </h2>
+          <h4>El siguiente es un mapa de los actores involucrados cada que hay una protesta en el Distrito Federal. Se inicia con la protesta y continúa con la división entre Ciudadanía y Gobierno, mostrando a cada actor en cada una de las áreas.<br> El mapa inicia con algunos nodos abiertos. Da click en cada uno para abrir o contraer el mapa. El último nodo incluirá la descripción de sus responsabilidades </h4>
 
-            <h3> Dar click en cada nodo para expandir o contraer </h3>
-
-          </div>
-        <div id="description">
         </div>
       </div>
-    </div>
+
+<div id="grande">
+
+      <div id="description">
+      </div>
+
+      <div id="SVG" >
+      </div>
+</div>
+<td>
     <script type="text/javascript">
 
-var m = [10, 100, 10, 120],
-    w = 1280 - m[1] - m[3],
+//contenedor
+//.svg-container {
+  //      line-height:0;
+    //    font-size: 0;
+
+var m = [10, 10, 10, 80],
+    w = 1100 - m[1] - m[3],
     h = 800 - m[0] - m[2],
     i = 0,
     root;
@@ -77,7 +108,7 @@ var tree = d3.layout.tree()
 var diagonal = d3.svg.diagonal()
     .projection(function(d) { return [d.y, d.x]; });
 
-var vis = d3.select("#body").append("svg:svg")
+var vis = d3.select("#SVG").append("svg:svg")
     .attr("width", w + m[1] + m[3])
     .attr("height", h + m[0] + m[2])
   .append("svg:g")
@@ -122,12 +153,12 @@ function update(source) {
       .on("click", function(d) { 
         toggle(d); 
         update(d); 
-        var undiv = document.getElementById('description');
-        undiv.innerHTML= "<h3>" + d.name +"</h3>";
+        //var undiv = document.getElementById('description');
+        //undiv.innerHTML= "<h3>" + d.name +"</h3>";
         if(typeof d.description != 'undefined') {
           console.log(d);
           var undiv = document.getElementById('description');
-          undiv.innerHTML= "<h3>" + d.name +"</h3>" + d.description;
+          undiv.innerHTML= "<h4>" + d.name +"</h4>" + d.description;
         }
       });
 //Dentro del if 
@@ -135,14 +166,46 @@ function update(source) {
 
   nodeEnter.append("svg:circle")
       .attr("r", 1e-6)
-      .style("fill", function(d) { return "#FFFF00"; });
+      .style("fill", function(d) { return "CC0099"; });
 
   nodeEnter.append("svg:text")
-      .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
-      .attr("dy", ".35em")
+
+      .attr("x", function(d) { return d.children || d._children ? 0 : -5; })
+      //.attr("dy", ".35em")
+      .attr("dy", function(d) { return d.children || d._children ? -10 : 10; })
       .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-      .text(function(d) { return d.name; })
-      .style("fill-opacity", 1e-6);
+      .text(function(d) { return d.name ; })
+      .style("fill-opacity", 1e-6)
+      .call(wrap, 200);
+
+//función que debería acortar texto
+
+function wrap(text, width) {
+
+  text.each(function() {
+    var text = d3.select(this),
+        words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineNumber = 0,
+        lineHeight = 10, // ems
+        y = text.attr("y"),
+        dy = parseFloat(text.attr("dy")),
+        tspan = text.text(null).append("tspan").attr("x" , 0).attr("dy", 0).attr("dy", dy -10);
+
+    while (word = words.pop()) {
+      line.push(word);
+      tspan.text(line.join(" "));
+
+      if (tspan.node().getComputedTextLength() > width) {
+        line.pop();
+        tspan.text(line.join(" "));
+        line = [word];
+        tspan = text.append("tspan").attr("x", 0).attr("y", 0).attr("dy", ++lineNumber * lineHeight + dy -10).text(word);
+      }
+    }
+  }); }
+//acá termina
 
   // Transition nodes to their new position.
   var nodeUpdate = node.transition()
@@ -154,7 +217,7 @@ function update(source) {
       .style("fill", function(d) {
 
         if (typeof d.description != 'undefined') {
-          return "#FFFF00" ;
+          return "#CC0099" ;
         } 
         else {
           return "CC0000" ;
@@ -225,5 +288,6 @@ function toggle(d) {
 }
 
     </script>
+</td>
   </body>
 </html>
