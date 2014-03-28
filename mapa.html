@@ -114,7 +114,7 @@ var vis = d3.select("#SVG").append("svg:svg")
   .append("svg:g")
     .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
-d3.json("http://codigo.labplc.mx/~rockarloz/dejatecaer/oscar.php", function(json) {
+d3.json("mapa.php", function(json) {
   root = json;
   root.x0 = h / 2;
   root.y0 = 0;
