@@ -7,9 +7,10 @@ $dios=array();
 $protestan_a=array();
 $protestan_a["name"]="Yo soy 132";
 $protestan_a["size"]=3938;
-$protestan_a["description"]= "Fingerstache stumptown Odd Future Etsy, tousled semiotics pug fixie put a bird on it<br>
-Lomo Echo Park synth, fashion axe sartorial hashtag jean shorts scenester vegan<br>
-Raw denim Carles typewriter pickled, next level High Life twee disrupt retro letterpress.<br>";
+$protestan_a["description"]= "El movimiento YoSoy132 es un movimiento ciudadano conformado en su mayoría por estudiantes mexicanos de educación superior, tanto de instituciones públicas como privadas, residentes en México, así como residentes y simpatizantes 
+en más de 50 ciudades del Mundo. El movimiento inicialmente buscaba: la democratización de los medios de comunicación, 
+la creación de un tercer debate entre los candidatos presidenciales5 y el rechazo a la supuesta imposición mediática
+ de Enrique Peña Nieto como candidato en las elecciones presidenciales 2012.";
 
 $los_hijos_que_protestan=array();
 array_push($los_hijos_que_protestan, $protestan_a);
@@ -22,23 +23,17 @@ $protestan["children"]=$los_hijos_que_protestan;//array [];
 $laoms_a=array();
 $laoms_a["name"]="Jorge Cadena Roa";
 $laoms_a["size"]=3938;
-$laoms_a["description"]="Fingerstache stumptown Odd Future Etsy, tousled semiotics pug fixie put a bird on it<br>
-Lomo Echo Park synth, fashion axe sartorial hashtag jean shorts scenester vegan<br>
-Raw denim Carles typewriter pickled, next level High Life twee disrupt retro letterpress.";
+$laoms_a["description"]="Coordinador del  Laboratorio de Análisis de Organizaciones y Movimientos Sociales (LAOMS)";
 
 $laoms_b=array();
 $laoms_b["name"]="Becario 1";
 $laoms_b["size"]=3938;
-$laoms_b["description"]="Fingerstache stumptown Odd Future Etsy, tousled semiotics pug fixie put a bird on it<br>
-Lomo Echo Park synth, fashion axe sartorial hashtag jean shorts scenester vegan<br>
-Raw denim Carles typewriter pickled, next level High Life twee disrupt retro letterpress.";
+$laoms_b["description"]="Becario del  Laboratorio de Análisis de Organizaciones y Movimientos Sociales (LAOMS), trabaja con Jorge Cadena Roa";
 
 $laoms_c=array();
 $laoms_c["name"]="Becario 2";
 $laoms_c["size"]=3938;
-$laoms_c["description"]="Fingerstache stumptown Odd Future Etsy, tousled semiotics pug fixie put a bird on it<br>
-Lomo Echo Park synth, fashion axe sartorial hashtag jean shorts scenester vegan<br>
-Raw denim Carles typewriter pickled, next level High Life twee disrupt retro letterpress.";
+$laoms_c["description"]="Becario del  Laboratorio de Análisis de Organizaciones y Movimientos Sociales (LAOMS), trabaja con Jorge Cadena Roa";
 
 
 //Se añaden los hijos de laoms a mano a un array (los agrupamos)
@@ -81,8 +76,11 @@ $names=array();
 array_push($names, "Usuarios transporte público");
 array_push($names, "Peatones");
 $names_description=array();
-array_push($names_description, "Usuarios transporte público desc");
-array_push($names_description, "Peatones desc");
+array_push($names_description, "Durante las protestas en la ciudad, los bloqueos a la circulación afectan también a los carriles exclusivos de Metrobus, Trolebús y a aquellos que circulan
+	con el resto del tránsito vehicular. Sus usuarios son directamente afectados cuando esto ocurre.");
+array_push($names_description, "Todo usuario de transporte público es un peatón. La manera de acceder a las estaciones es caminando. En ocasiones, cuando el transporte público deja de funcionar durante la protesta, el medio más sencillo es caminar.
+
+	Aunque en sentido estricto una protesta implica una masa crítica de peatones, muchas veces los que buscan llegar un punto A a un punto B, únicamente atraviesan la protesta sin mayor dificultad.");
 $noprotestan_peatones["children"]=crear_hijos_personalizados(2,$names,$names_description);
 
 
@@ -93,20 +91,17 @@ $medios1=array();
 
 $hijos_jornada_nombre=array();
 array_push($hijos_jornada_nombre, "Agustín Salgado");
-array_push($hijos_jornada_nombre, "Raúl Llanos Samaniego");
-array_push($hijos_jornada_nombre, "Rocío González");
 $hijos_jornada_nombre_desc=array();
-array_push($hijos_jornada_nombre_desc, "Agustín Salgado desc");
-array_push($hijos_jornada_nombre_desc, "Raúl Llanos Samaniego desc");
-array_push($hijos_jornada_nombre_desc, "Rocío González desc");
-array_push($medios1, crear_padres_hijos_personalizados("La Jornada",3,$hijos_jornada_nombre,$hijos_jornada_nombre_desc));
+array_push($hijos_jornada_nombre_desc, "Periodista que ha cubierto distintos tipos de protesta dentro del Distrito Federal");
+
+array_push($medios1, crear_padres_hijos_personalizados("La Jornada",1,$hijos_jornada_nombre,$hijos_jornada_nombre_desc));
 
 $hijos_universal_nombre=array();
 array_push($hijos_universal_nombre, "Gerardo Suárez");
 array_push($hijos_universal_nombre, "Phenélope Aldaz");
 $hijos_universal_nombre_desc=array();
-array_push($hijos_universal_nombre_desc, "Gerardo Suárez");
-array_push($hijos_universal_nombre_desc, "Phenélope Aldaz");
+array_push($hijos_universal_nombre_desc, "Periodista que ha cubierto distintos tipos de protesta dentro del Distrito Federal");
+array_push($hijos_universal_nombre_desc, "Periodista que ha cubierto distintos tipos de protesta dentro del Distrito Federal");
 array_push($medios1, crear_padres_hijos_personalizados("El Universal",2,$hijos_universal_nombre,$hijos_universal_nombre_desc));
 
 $medios["children"]=$medios1;
@@ -120,16 +115,16 @@ $hijos_cochista=array();
 array_push($hijos_cochista, "Apoyan la causa");
 array_push($hijos_cochista, "No apoyan la causa");
 $hijos_cochista_desc=array();
-array_push($hijos_cochista_desc, "Apoyan la causa desc");
-array_push($hijos_cochista_desc, "No apoyan la causa desc");
+array_push($hijos_cochista_desc, "Durante una protesta, los automovilistas tienden a quedar encerrados dentro de la marcha, debido al espacio que requieren para circular en la ciudad. Sin embargo, algunas veces los mismos automovilistas apoyan la causa o el por qué de la protesta cuando conocen la causa");
+array_push($hijos_cochista_desc, "Durante una protesta, los automovilistas tienden a quedar encerrados dentro de la marcha, debido al espacio que requieren para circular en la ciudad. Este tipo de usuarios recurren a las noticias de la radio donde la cobertura no es muy amplia y generalmente anuncian únicamente una marcha o bloqueo, sin mayor información de los actores involucrados");
 array_push($hijos_ciudania_no_protestan, crear_padres_hijos_personalizados("Automovilistas",2,$hijos_cochista,$hijos_cochista_desc));
 
 $hijos_ciclista=array();
 array_push($hijos_ciclista, "Apoyan la causa");
 array_push($hijos_ciclista, "No apoyan la causa");
 $hijos_ciclista_desc=array();
-array_push($hijos_ciclista_desc, "Apoyan la causa");
-array_push($hijos_ciclista_desc, "No apoyan la causa");
+array_push($hijos_ciclista_desc, "En ocasiones, cuando un contingente de ciclistas decide unirse a un contingente, dado el tamaño del vehículo y la faciliad de introducirse al espacio, puede decidir entrar a la marcha");
+array_push($hijos_ciclista_desc, "Cuando un ciclista o un contingente no apoya la causa, dado el espacio que requiere, es fácil para ellos cruzar el contingente y continuar su camino");
 array_push($hijos_ciudania_no_protestan, crear_padres_hijos_personalizados("ciclistas",2,$hijos_ciclista,$hijos_ciclista_desc));
 
 array_push($hijos_ciudania_no_protestan, $medios);
@@ -156,9 +151,15 @@ $legislativo=crear_padres_sin_hijos("Legislativo");
 
 $hijos_dipulocal=array();
 array_push($hijos_dipulocal, "Jorge Sotomayor");
+array_push($hijos_dipulocal, "Laura Ballesteros");
 $hijos_dipulocaldesc=array();
-array_push($hijos_dipulocaldesc, "Jorge Sotomayor Desc");
-array_push($legislativo_temp, crear_padres_hijos_personalizados("Diputado local",1,$hijos_dipulocal,$hijos_dipulocaldesc));
+array_push($hijos_dipulocaldesc, "Jorge Francisco Sotomayor Chávez
+Diputado federal por el Partido Acción Nacional
+Presentó una propuesta para regular las marchas en la Ciudad de México");
+array_push($hijos_dipulocaldesc, "Laura Ballesteros Mancilla
+Diputada local por el Partido Acción Nacional
+Presentó una propuesta de Ley de Movilidad que incluía una regulación a las marchas en la Ciudad de México");
+array_push($legislativo_temp, crear_padres_hijos_personalizados("Diputado",2,$hijos_dipulocal,$hijos_dipulocaldesc));
 
 
 
@@ -185,10 +186,14 @@ array_push($nombres_secgob, "Director General de concertación política y atenc
 array_push($nombres_secgob, "Directora de Concertación política");
 array_push($nombres_secgob, "Director de gestión social");
 $nombres_secgob_desc=array();
-array_push($nombres_secgob_desc, "Juan José García Ochoa");
-array_push($nombres_secgob_desc, "Israel De Rosas Gazano");
-array_push($nombres_secgob_desc, "Verenice Tellez Hernández");
-array_push($nombres_secgob_desc, "Pedro Bello Aguilar");
+array_push($nombres_secgob_desc, "Juan José García Ochoa
+	Vigilar, en el ámbito administrativo, el cumplimiento de los preceptos constitucionales por parte de las autoridades del Distrito Federal, especialmente en lo que se refiere a las garantías individuales y derechos humanos, así como dictar las medidas administrativas que requiera su cumplimiento");
+array_push($nombres_secgob_desc, "Israel De Rosas Gazano
+Es el encargado de dar seguimiento a los grupos que realizan movilizaciones sociales. Se encarga de canalizar las demandas con las dependencias correspondientes. Dar seguimiento a las negociaciones o trabajo y prevenir que ocurran nuevas protestas en la vía pública.");
+array_push($nombres_secgob_desc, "Verenice Tellez Hernández
+	Funge como enlace directo para generar el trabajo con los que generan movilizaciones sociales. Identifica necesidades, canaliza demandas y mantiene la comunicación con los demandantes.");
+array_push($nombres_secgob_desc, "Pedro Bello Aguilar
+	Establece los mecanismos para llevar a cabo todos los trabajos con los ciudadanos que generan movilizaciones sociales");
 array_push($local_temp, crear_padres_hijos_personalizados("Secretaría de Gobierno",4,$nombres_secgob, $nombres_secgob_desc));
 
 
@@ -196,21 +201,23 @@ $nombres_metro=array();
 array_push($nombres_metro, "Subdirector General de Operación");
 array_push($nombres_metro, "Director de Transportación");
 $nombres_metro_desc=array();
-array_push($nombres_metro_desc, "Salomón Solay Zyman. Subdirector General de Operación");
-array_push($nombres_metro_desc, "Nahum Leal Barroso. Director de Transportación");
+array_push($nombres_metro_desc, "Salomón Solay Zyman. 
+	Establece los mecanismos y supervisa la operación general del Metro, desde los vagones hasta las estaciones. Cuando hay un acontecimiento especial, se encargan de la logística para mantener el servicio y la seguridad de los usuarios.");
+array_push($nombres_metro_desc, "Nahum Leal Barroso. 
+	Encargado de mantener los trenes, vías y demás necesarios para el correcto funcionamiento del STC en óptimas condiciones y se encarga de mantener un óptimo servicio en las líneas");
 array_push($local_temp, crear_padres_hijos_personalizados("STC Metro",2,$nombres_metro,$nombres_metro_desc));
 
 $nombres_metrobus=array();
 array_push($nombres_metrobus, "Dirección Técnico Operativa");
 $nombres_metrobus_desc=array();
-array_push($nombres_metrobus_desc, "Dirección Técnico Operativa");
+array_push($nombres_metrobus_desc, "Establece los lineamientos del funcionamiento de Metrobús. En caso de una marcha, establecen los criterios para mantener el servicio de la mejor manera posible");
 array_push($local_temp, crear_padres_hijos_personalizados("Metrobus",1,$nombres_metrobus,$nombres_metrobus_desc));
 
 $nombres_ssp=array();
 array_push($nombres_ssp, "Dirección General de la policía metropolitana");
 array_push($nombres_ssp, "Dirección General de operación de tránsito");
 $nombres_ssp_desc=array();
-array_push($nombres_ssp_desc, "Descripción");
+array_push($nombres_ssp_desc, "perrito");
 array_push($nombres_ssp_desc, "DDescripción");
 array_push($local_temp, crear_padres_hijos_personalizados("Seguridad Pública",2,$nombres_ssp,$nombres_ssp_desc));
 
